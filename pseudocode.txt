@@ -1,0 +1,117 @@
+START
+
+    INPUT currentBalance
+    INPUT depositAmount
+
+    newBalance = currentBalance + depositAmount
+
+    OUTPUT "Money deposited successfully"
+    OUTPUT "New balance:", newBalance
+
+//withdrawing money
+    INPUT currentBalance
+    INPUT withdrawalAmount
+
+    IF withdrawalAmount <= currentBalance THEN
+
+        newBalance = currentBalance - withdrawalAmount
+
+        OUTPUT "Withdrawal successful"
+        OUTPUT "New balance: R", newBalance
+
+    ELSE
+
+        OUTPUT "Insufficient funds"
+
+    END IF
+
+//Taking out money rapidly
+    Get currentBalance
+
+    INPUT withdrawalAmount1
+
+    IF withdrawalAmount1 <= currentBalance THEN
+        currentBalance = currentBalance - withdrawalAmount1
+        OUTPUT "Transaction 1 successful"
+        OUTPUT "New balance:", currentBalance
+    ELSE
+        OUTPUT "Transaction 1 failed - Insufficient funds"
+    END IF
+
+    Get currentBalance
+    INPUT withdrawalAmount2
+
+        IF withdrawalAmount2 <= currentBalance THEN
+            currentBalance = currentBalance - withdrawalAmount2
+            OUTPUT "Transaction 2 successful"
+            OUTPUT "New balance:", currentBalance
+        ELSE
+            OUTPUT "Transaction 2 failed - Insufficient funds"
+        END IF
+
+    END IF
+
+        INPUT withdrawalAmount3
+        timeDifference
+
+        IF timeDifference < 10 seconds THEN
+            accountBlocked = TRUE
+            accountFlagged = TRUE
+
+            OUTPUT "Account blocked"
+            OUTPUT "Account flagged as potentially hacked"
+
+        ELSE
+
+            IF withdrawalAmount3 <= currentBalance THEN
+                currentBalance = currentBalance - withdrawalAmount3
+                OUTPUT "Transaction 3 successful"
+                OUTPUT "New balance:", currentBalance
+            ELSE
+                OUTPUT "Transaction 3 failed - Insufficient funds"
+            END IF
+
+        END IF
+
+    END IF
+
+//spending spikes
+
+    Get currentBalance
+
+    SET withdrawal1
+    SET withdrawal2
+    SET withdrawal3
+
+    averageWithdrawal =
+        (withdrawal1 + withdrawal2 + withdrawal3) / 3
+
+
+    INPUT newWithdrawalAmount
+
+    IF newWithdrawalAmount <= currentBalance THEN
+
+        IF newWithdrawalAmount <= averageWithdrawal * 5 THEN
+
+            currentBalance = currentBalance - newWithdrawalAmount
+
+            OUTPUT "Transaction successful"
+            OUTPUT "Spending amount is normal"
+            OUTPUT "New balance:", currentBalance
+
+        ELSE
+
+            OUTPUT "Transaction flagged"
+            OUTPUT "Unusual spending spike detected"
+            OUTPUT "Transaction cancelled"
+
+        END IF
+
+    ELSE
+
+        OUTPUT "Transaction failed"
+        OUTPUT "Insufficient funds"
+
+    END IF
+
+END
