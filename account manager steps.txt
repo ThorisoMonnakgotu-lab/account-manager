@@ -1,0 +1,41 @@
+Step by step requirements
+Going to use dummy data
+Scenario 1: Add money
+1.	Add the amount you want to put into your account
+2.	The new balance gets updated
+scenario 2: Taking out money
+1.	Check the amount available in the account
+2.	Add the amount you want to take out.
+3.	Subtract the amount
+4.	If the subtracted amount is in the account then the transaction goes through
+5.	The new balance gets updated
+Scenario 2.2: Taking out money rapidly
+1.	Check the amount available in the account
+2.	Add the amount you want to take out.
+3.	Subtract the amount
+4.	If the subtracted amount is in the account then the transaction goes through
+5.	The new balance gets updated
+6.	Add the amount you want to take out.
+7.	Subtract the amount
+8.	If the subtracted amount is in the account then the transaction goes through
+9.	The new balance gets updated
+10.	Add the amount you want to take out.
+11.	Subtract the amount
+12.	If the subtracted amount is in the account then the transaction goes through
+13.	The new balance gets updated
+14.	The account gets blocked for repeated transactions under 10 seconds
+15.	The account is flagged as being hacked
+Scenario 2.3: Taking out money (Unusual Spending Spikes)
+1.	Check the amount available in the account
+2.	Add the amount you want to take out.
+3.	Subtract the amount
+4.	Checks if the subtracted amount is 5 times larger than the average subtracted amount
+5.	When the subtracted amount is normal the transaction goes through
+6.	Balance gets updated
+7.	Check the amount available in the account
+8.	Add the amount you want to take out.
+9.	Subtract the amount
+10.	Checks if the subtracted amount is 5 times larger than the average subtracted amount
+11.	When the subtracted amount is not normal the transaction is flagged 
+12.	the transaction gets cancelled.
+
